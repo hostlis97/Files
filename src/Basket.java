@@ -1,6 +1,7 @@
 import java.io.*;
 
-public class Basket {
+public class Basket implements Serializable {
+    private static final long serialVersionUID = 1234567890L;
     public int price[];
     public String products[];
     public int cart[];
@@ -41,7 +42,7 @@ public class Basket {
         }
     }
 
-    protected static void loadFromBinFile(File file, Basket cart) throws IOException {
+    protected static void loadFromTxtFile(File file, Basket cart) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(file.getName()))) {
             String s;
             int product = 0;
@@ -55,6 +56,8 @@ public class Basket {
         } catch (NumberFormatException ex) {
         }
     }
+
+    protected save
 
 
 }
