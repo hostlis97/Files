@@ -57,7 +57,28 @@ public class Basket implements Serializable {
         }
     }
 
-    protected save
+    protected void saveBin(File file, Basket basket) {
+        try (FileOutputStream fos = new FileOutputStream(file.getName()); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(basket);
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
+
+    protected static Basket loadFromBinFile(File file, Basket basket) {
+        try (FileInputStream fis = new FileInputStream(file.getName()); ObjectInputStream ois = new ObjectInputStream(fis)) {
+            basket = (Basket) ois.readObject();
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        } catch (IOException e) {
+            e.getMessage();
+        } catch (ClassNotFoundException e) {
+            e.getMessage();
+        }
+        return basket;
+    }
 
 
 }
