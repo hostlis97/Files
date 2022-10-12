@@ -12,7 +12,7 @@ public class Main {
 
         if (file.exists()) {
             System.out.println("Файл существует");
-            Basket.loadFromBinFile(file, cart);
+            Basket.loadFromTxtFile(file, cart);
         } else {
             System.out.println("Файл не существует");
             try {

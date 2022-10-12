@@ -41,7 +41,7 @@ public class Basket {
         }
     }
 
-    protected static void loadFromBinFile(File file, Basket cart) throws IOException {
+    protected static void loadFromTxtFile(File file, Basket cart) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(file.getName()))) {
             String s;
             int product = 0;
