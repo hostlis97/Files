@@ -2,10 +2,10 @@ import java.io.*;
 
 public class Basket implements Serializable {
     private static final long serialVersionUID = 1234567890L;
-    public int price[];
-    public String products[];
-    public int cart[];
-    public int total = 0;
+    private int price[];
+    private String products[];
+    private int cart[];
+    private int total = 0;
 
     public Basket(int price[], String products[]) {
         this.price = price;
