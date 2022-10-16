@@ -12,7 +12,14 @@ public class Main {
 
         if (file.exists()) {
             System.out.println("Файл существует");
-            Basket.loadFromTxtFile(file, cart);
+            try {
+                Basket.loadFromTxtFile(file, cart);
+            } catch (IOException e) {
+                e.getMessage();
+            } catch (NumberFormatException e) {
+
+            }
+
         } else {
             System.out.println("Файл не существует");
             try {

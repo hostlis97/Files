@@ -41,18 +41,14 @@ public class Basket {
         }
     }
 
-    protected static void loadFromTxtFile(File file, Basket cart) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(file.getName()))) {
-            String s;
-            int product = 0;
-            while ((s = br.readLine()) != null) {
-                String parse[] = s.split(" ");
-                cart.addCart(Integer.parseInt(parse[0]), product);
-                product++;
-            }
-        } catch (IOException ex) {
-            ex.getMessage();
-        } catch (NumberFormatException ex) {
+    protected static void loadFromTxtFile(File file, Basket cart) throws IOException, NumberFormatException {
+        BufferedReader br = new BufferedReader(new FileReader(file.getName()));
+        String s;
+        int product = 0;
+        while ((s = br.readLine()) != null) {
+            String parse[] = s.split(" ");
+            cart.addCart(Integer.parseInt(parse[0]), product);
+            product++;
         }
     }
 
