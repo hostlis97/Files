@@ -67,16 +67,9 @@ public class Basket implements Serializable {
         }
     }
 
-    protected static Basket loadFromBinFile(File file, Basket basket) {
-        try (FileInputStream fis = new FileInputStream(file.getName()); ObjectInputStream ois = new ObjectInputStream(fis)) {
+    protected static Basket loadFromBinFile (File file, Basket basket) throws IOException,ClassNotFoundException {
+        FileInputStream fis = new FileInputStream(file.getName()); ObjectInputStream ois = new ObjectInputStream(fis);
             basket = (Basket) ois.readObject();
-        } catch (FileNotFoundException e) {
-            e.getMessage();
-        } catch (IOException e) {
-            e.getMessage();
-        } catch (ClassNotFoundException e) {
-            e.getMessage();
-        }
         return basket;
     }
 

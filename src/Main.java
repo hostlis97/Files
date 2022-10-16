@@ -12,7 +12,11 @@ public class Main {
 
         if (file.exists()) {
             System.out.println("Файл существует");
-            cart = Basket.loadFromBinFile(file, cart);
+            try {
+                cart = Basket.loadFromBinFile(file, cart);
+            } catch (ClassNotFoundException e) {
+                e.getMessage();
+            }
         } else {
             System.out.println("Файл не существует");
             try {
