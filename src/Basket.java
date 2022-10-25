@@ -47,7 +47,6 @@ public class Basket {
 
     protected static Basket loadFromTxtFile(File file) throws IOException, NumberFormatException {
         BufferedReader br = new BufferedReader(new FileReader(file.getName()));
-        String s;
         String[] readStr1 = br.readLine().split(" ");
         int[] price = new int[readStr1.length];
         for (int i = 0; i < readStr1.length; i++) {
