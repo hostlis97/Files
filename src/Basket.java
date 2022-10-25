@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Basket {
     private int price[];
@@ -42,43 +40,35 @@ public class Basket {
             for (int cartTxt : cart) {
                 writer.write(cartTxt + " ");
             }
-
-            /*for (int i = 0; i < cart.length; i++) {
-                if (cart[i] != 0) {
-                    writer.write(products[i] + " " + cart[i] + " шт " + price[i] + " руб/шт " + cart[i] * price[i] + " руб в сумме\n");
-                }
-            }
-            writer.write("Итого: " + total + " руб");*/
-
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-/*    protected static Basket loadFromTxtFile(File file) throws IOException, NumberFormatException {
+    protected static Basket loadFromTxtFile(File file) throws IOException, NumberFormatException {
         BufferedReader br = new BufferedReader(new FileReader(file.getName()));
         String s;
-        List<String> product = new ArrayList<>();
-        List<String> total = new ArrayList<>();
-        List<Integer> price = new ArrayList<>();
-        //Basket cart = new Basket(null, new String[]{"null"});
-        while ((s = br.readLine()) != null) {
-            String productCartFile[] = s.split(" ");
-            if (!productCartFile[0].equals("Итого:")) {
-                product.add(productCartFile[0]);
-                total.add(productCartFile[1]);
-                price.add(Integer.parseInt(productCartFile[3]));
-
-            }
+        String[] readStr1 = br.readLine().split(" ");
+        int[] price = new int[readStr1.length];
+        for (int i = 0; i < readStr1.length; i++) {
+            price[i] = Integer.parseInt(readStr1[i]);
         }
-        Integer[] fff = price.toArray(new Integer[0]);
-        String priseInt = Arrays.toString(new List[]{price});
-        Basket cart = new Basket(fff.length, new String[]{pro;
 
-        //.addCart(Integer.parseInt(parse[0]), product);
-//            product++;
-        return null;
-    }*/
+        String[] readStr2 = br.readLine().split(" ");
+        String[] products = new String[readStr2.length];
+        for (int i = 0; i < readStr2.length; i++) {
+            products[i] = readStr2[i];
+        }
 
-
+        String[] readStr3 = br.readLine().split(" ");
+        int[] cart = new int[readStr3.length];
+        for (int i = 0; i < readStr3.length; i++) {
+            cart[i] = Integer.parseInt(readStr3[i]);
+        }
+        Basket basket = new Basket(price, products);
+        for (int i = 0; i < products.length; i++) {
+            basket.addCart(cart[i], i);
+        }
+        return basket;
+    }
 }

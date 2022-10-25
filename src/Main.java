@@ -1,7 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -14,13 +12,13 @@ public class Main {
 
         if (file.exists()) {
             System.out.println("Файл существует");
-            /*try {
-              //  Basket.loadFromTxtFile(file);
+            try {
+                cart = Basket.loadFromTxtFile(file);
             } catch (IOException e) {
                 e.getMessage();
             } catch (NumberFormatException e) {
 
-            }*/
+            }
 
         } else {
             System.out.println("Файл не существует");
